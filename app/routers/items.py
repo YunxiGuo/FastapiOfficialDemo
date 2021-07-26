@@ -5,5 +5,13 @@
 # @Author    :guoyunxi
 
 
-if __name__ == "__main__":
-    run_code = 0
+from fastapi import APIRouter
+
+router = APIRouter()
+
+items = [{"item_id": 1, "item_name": "lucy"}, {"item_id": 2, "item_name": "lily"}]
+
+
+@router.get(path="/items", tags=["items"])
+async def get_items():
+    return items
